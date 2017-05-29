@@ -265,4 +265,12 @@ describe('inline-css', function() {
         };
         compare(path.join('test', 'fixtures', 'xhtml.html'), path.join('test', 'expected', 'xhtml.html'), options, done);
     });
+
+    it('should protect specified strings and keep them them out of the inlining process',function(done){
+        var options = {
+            protect: ['{{','}}','<<','>>','<%=','%>']
+        };
+        compare(path.join('test', 'fixtures', 'interpol.html'), path.join('test', 'expected', 'interpol.html'), options, done);
+
+    });
 });
